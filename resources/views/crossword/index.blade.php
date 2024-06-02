@@ -7,53 +7,72 @@
     <title>Crossword Puzzle</title>
     <style>
         body {
-            background-color: #5AB2FF;
-            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        h1, h2 {
+        h1 {
+            color: #2c3e50;
+            margin-top: 20px;
+            font-size: 3em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            color: #34495e;
+            margin-bottom: 20px;
+            font-size: 2em;
             text-align: center;
-            color: #333;
         }
         .puzzle-step {
             display: flex;
-            justify-content: space-around;
+            flex-direction: column;
+            justify-content: center;
             margin: 20px auto;
             width: 80%;
+            max-width: 1000px;
         }
         .puzzle {
             margin-bottom: 30px;
-            border-radius: 10px;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            border-radius: 15px;
             overflow: hidden;
+            border: 3px solid #3498db;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
         table {
-            background-color: #CAF4FF;
+            background-color: #ecf9ff;
             border-collapse: collapse;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 15px;
             margin: 0 auto;
         }
         td {
-            width: 30px;
-            height: 30px;
-            padding: 3px;
+            width: 40px;
+            height: 40px;
+            padding: 5px;
             text-align: center;
-            border: 1px solid black;
-            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+            border: 1px solid #bdc3c7;
+            font-size: 1.5em;
+            color: #2c3e50;
         }
         .step {
-            border: 1px solid gray;
-            border-radius: 10px;
-            background-color: lightgray;
-            padding: 20px;
-            margin-bottom: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 3px solid #3498db;
+            border-radius: 15px;
+            background-color: #ecf0f1;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
         ol {
-            padding-left: 20px;
+            padding-left: 40px;
         }
         ol li {
-            margin-bottom: 10px;
-            color: #444;
+            margin-bottom: 15px;
+            color: #7f8c8d;
+            font-size: 1.2em;
         }
     </style>
 </head>
@@ -74,11 +93,11 @@
         <div class="step">
             <h2>Solution Steps</h2>
             <ol>
-            @foreach ($steps as $index => $step)
-                @if ($index > 0)
-                    <li>{{ $steps[$index - 1] }}</li>
-                @endif
-            @endforeach
+                @foreach ($steps as $index => $step)
+                    @if ($index > 0)
+                        <li>{{ $steps[$index - 1] }}</li>
+                    @endif
+                @endforeach
             </ol>
         </div>
     </div>
